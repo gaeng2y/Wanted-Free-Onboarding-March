@@ -28,6 +28,8 @@ class CustomView: UIView {
     @IBOutlet private var loadButton: UIButton!
     private var observation: NSKeyValueObservation!
     private var task: URLSessionDataTask!
+//    private var workItem: DispatchWorkItem!
+    private var blockOperation: BlockOperation!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,26 +39,85 @@ class CustomView: UIView {
     }
     
     deinit {
-        observation.invalidate()
+        observation?.invalidate()
         observation = nil
     }
     
     func reset() {
-        imageView.image = .init(systemName: "photo")
-        progressView.progress = 0
-        loadButton.isEnabled = true
-        loadButton.isSelected = false
+        OperationQueue.main.addOperation {
+            self.imageView.image = .init(systemName: "photo")
+            self.progressView.progress = 0
+            self.loadButton.isSelected = false
+        }
     }
     
     func loadImage() {
         loadButton.sendActions(for: .touchUpInside)
     }
     
+    func stopLoading() {
+        
+    }
+    
+    private func startLoad(url: URL) {
+        blockOperation = BlockOperation {
+            guard !self.blockOperation.isCancelled else {
+                self.reset()
+                return
+            }
+            
+            let request = URLRequest(url: url)
+            
+            self.task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    guard error.localizedDescription == "cancelled" else {
+                        fatalError(error.localizedDescription)
+                    }
+                    
+                    self.reset()
+                    return
+                }
+                
+                guard let data = data,
+                      let image = UIImage(data: data) else {
+                    OperationQueue.main.addOperation {
+                        self.imageView.image = .init(systemName: "xmark")
+                    }
+                    return
+                }
+                
+                OperationQueue.main.addOperation {
+                    self.imageView.image = image
+                    self.loadButton.isSelected.toggle()
+                }
+            }
+            
+            self.observation = self.task.progress.observe(\.fractionCompleted,
+                                                 options: [.new],
+                                                 changeHandler: { progress, change in
+                OperationQueue.main.addOperation {
+                    guard !self.blockOperation.isCancelled else {
+                        self.observation.invalidate()
+                        self.observation = nil
+                        self.progressView.progress = 0
+                        return
+                    }
+                    self.progressView.progress = Float(progress.fractionCompleted)
+                }
+            })
+            
+            self.task.resume()
+        }
+        
+        OperationQueue().addOperation(blockOperation)
+    }
+    
     @IBAction private func onClickLoadButon(_ sender: UIButton) {
         sender.isSelected.toggle()
         
         guard sender.isSelected else {
-            task.cancel()
+//            task.cancel()
+            self.blockOperation.cancel()
             return
         }
         
@@ -65,41 +126,6 @@ class CustomView: UIView {
         }
         
         let url = ImageURL[sender.tag]
-        let request = URLRequest(url: url)
-        
-        task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                guard error.localizedDescription == "cancelled" else {
-                    fatalError(error.localizedDescription)
-                }
-                
-                DispatchQueue.main.async {
-                    self.reset()
-                }
-                return
-            }
-            
-            guard let data = data,
-                  let image = UIImage(data: data) else {
-                DispatchQueue.main.async {
-                    self.imageView.image = .init(systemName: "xmark")
-                }
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.imageView.image = image
-            }
-        }
-        
-        observation = task.progress.observe(\.fractionCompleted,
-                                             options: [.new],
-                                             changeHandler: { progress, change in
-            DispatchQueue.main.async {
-                self.progressView.progress = Float(progress.fractionCompleted)
-            }
-        })
-        
-        task.resume()
+        startLoad(url: url)
     }
 }
