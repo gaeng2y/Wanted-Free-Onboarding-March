@@ -17,25 +17,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9U9-ai-Hpe">
-                                <rect key="frame" x="10" y="163" width="373" height="526"/>
+                                <rect key="frame" x="10" y="44" width="373" height="764.33333333333348"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWu-EJ-WNk" customClass="CustomView" customModule="Wanted_FreeOnboarding_March" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="98.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="150.33333333333334"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="dte-rr-QBX">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="98.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="150.33333333333334"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WBp-uF-T6V">
-                                                        <rect key="frame" x="0.0" y="1.6666666666666643" width="98.333333333333329" height="95.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="27.666666666666657" width="98.333333333333329" height="95"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="WBp-uF-T6V" secondAttribute="height" multiplier="1:1" id="OlA-v0-XPf"/>
                                                         </constraints>
                                                     </imageView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Xz0-dn-tIt">
-                                                        <rect key="frame" x="111.33333333333333" y="47.333333333333343" width="173.66666666666669" height="4"/>
+                                                        <rect key="frame" x="111.33333333333333" y="73" width="173.66666666666669" height="4"/>
                                                     </progressView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0b-Uf-YWP">
-                                                        <rect key="frame" x="298" y="32" width="75" height="34.333333333333343"/>
+                                                        <rect key="frame" x="298" y="58" width="75" height="34.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Load"/>
                                                         <connections>
@@ -59,22 +59,22 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nc2-Hy-y3o" customClass="CustomView" customModule="Wanted_FreeOnboarding_March" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="98.333333333333314" width="373" height="98.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="150.33333333333334" width="373" height="150.00000000000003"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xTT-cU-W8h">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="98.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="imf-pX-UK3">
-                                                        <rect key="frame" x="0.0" y="1.6666666666666643" width="98.333333333333329" height="95.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="27.333333333333321" width="98.333333333333329" height="95.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="imf-pX-UK3" secondAttribute="height" multiplier="1:1" id="hjl-ub-pKl"/>
                                                         </constraints>
                                                     </imageView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nW1-u5-c4N">
-                                                        <rect key="frame" x="111.33333333333333" y="47.333333333333371" width="173.66666666666669" height="4"/>
+                                                        <rect key="frame" x="111.33333333333333" y="72.999999999999972" width="173.66666666666669" height="4"/>
                                                     </progressView>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ey8-Ws-BdE">
-                                                        <rect key="frame" x="298" y="32" width="75" height="34.333333333333343"/>
+                                                        <rect key="frame" x="298" y="57.666666666666657" width="75" height="34.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                                         <connections>
@@ -98,22 +98,22 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jd1-8o-gTA" customClass="CustomView" customModule="Wanted_FreeOnboarding_March" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="196.66666666666669" width="373" height="98.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="300.33333333333331" width="373" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="ZWy-ul-cYL">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="98.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UQx-EJ-LhR">
-                                                        <rect key="frame" x="0.0" y="1.6666666666666643" width="98.333333333333329" height="95.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="27.33333333333335" width="98.333333333333329" height="95.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="UQx-EJ-LhR" secondAttribute="height" multiplier="1:1" id="UWy-eh-hRG"/>
                                                         </constraints>
                                                     </imageView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cJe-6k-1AU">
-                                                        <rect key="frame" x="111.33333333333333" y="47.333333333333314" width="173.66666666666669" height="4"/>
+                                                        <rect key="frame" x="111.33333333333333" y="73" width="173.66666666666669" height="4"/>
                                                     </progressView>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psX-MK-81V">
-                                                        <rect key="frame" x="298" y="32" width="75" height="34.333333333333343"/>
+                                                        <rect key="frame" x="298" y="57.666666666666686" width="75" height="34.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                                         <connections>
@@ -137,22 +137,22 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxE-ty-zUL" customClass="CustomView" customModule="Wanted_FreeOnboarding_March" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="295" width="373" height="98.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="450.33333333333326" width="373" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="wEG-Vp-W2Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="98.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-q0-Uws">
-                                                        <rect key="frame" x="0.0" y="1.6666666666666643" width="98.333333333333329" height="95.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="27.33333333333335" width="98.333333333333329" height="95.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="fWD-q0-Uws" secondAttribute="height" multiplier="1:1" id="lzg-Jj-V9W"/>
                                                         </constraints>
                                                     </imageView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="40W-Fl-rAx">
-                                                        <rect key="frame" x="111.33333333333333" y="47.333333333333314" width="173.66666666666669" height="4"/>
+                                                        <rect key="frame" x="111.33333333333333" y="73.000000000000057" width="173.66666666666669" height="4"/>
                                                     </progressView>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dI-Mn-Hfx">
-                                                        <rect key="frame" x="298" y="32" width="75" height="34.333333333333343"/>
+                                                        <rect key="frame" x="298" y="57.666666666666686" width="75" height="34.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                                         <connections>
@@ -176,22 +176,22 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRw-mH-eSv" customClass="CustomView" customModule="Wanted_FreeOnboarding_March" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="393.33333333333337" width="373" height="98.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="600.33333333333337" width="373" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="WkW-o9-wAV">
-                                                <rect key="frame" x="0.0" y="0.0" width="373" height="98.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="150"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dd0-4h-ExB">
-                                                        <rect key="frame" x="0.0" y="1.6666666666666643" width="98.333333333333329" height="95.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="27.333333333333293" width="98.333333333333329" height="95.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="dd0-4h-ExB" secondAttribute="height" multiplier="1:1" id="SJh-f9-hJp"/>
                                                         </constraints>
                                                     </imageView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Po5-qr-TFg">
-                                                        <rect key="frame" x="111.33333333333333" y="47.333333333333258" width="173.66666666666669" height="4"/>
+                                                        <rect key="frame" x="111.33333333333333" y="73" width="173.66666666666669" height="4"/>
                                                     </progressView>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KxX-US-Rh2">
-                                                        <rect key="frame" x="298" y="32" width="75" height="34.333333333333343"/>
+                                                        <rect key="frame" x="298" y="57.666666666666629" width="75" height="34.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                                         <connections>
@@ -215,9 +215,9 @@
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6f6-R2-oex">
-                                        <rect key="frame" x="0.0" y="491.66666666666663" width="373" height="34.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="750.33333333333337" width="373" height="14"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Load all image"/>
+                                        <buttonConfiguration key="configuration" style="filled"/>
                                         <connections>
                                             <action selector="onClickLoadAllImageButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5pQ-eU-jV7"/>
                                         </connections>
@@ -239,6 +239,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadAllImageButton" destination="6f6-R2-oex" id="cOC-gS-rUd"/>
                         <outletCollection property="views" destination="bWu-EJ-WNk" collectionClass="NSMutableArray" id="kfM-8v-iEP"/>
                         <outletCollection property="views" destination="Nc2-Hy-y3o" collectionClass="NSMutableArray" id="6eS-Eg-oSP"/>
                         <outletCollection property="views" destination="Jd1-8o-gTA" collectionClass="NSMutableArray" id="0GX-AN-d6V"/>

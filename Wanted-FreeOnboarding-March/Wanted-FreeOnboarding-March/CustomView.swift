@@ -7,7 +7,7 @@
 
 import UIKit
 
-fileprivate enum ImageURL {
+enum ImageURL {
     private static let imageIds: [String] = [
         "europe-4k-1369012",
         "europe-4k-1318341",
@@ -39,10 +39,6 @@ class CustomView: UIView {
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var progressView: UIProgressView!
     @IBOutlet private var loadButton: UIButton!
-    private var observation: NSKeyValueObservation!
-    private var task: URLSessionDataTask!
-//    private var workItem: DispatchWorkItem!
-    private var blockOperation: BlockOperation!
     private var imageLoadTask: Task<Void, Error>!
     
     override func awakeFromNib() {
@@ -53,24 +49,20 @@ class CustomView: UIView {
     }
     
     deinit {
-        observation?.invalidate()
-        observation = nil
     }
     
     func reset() {
-        OperationQueue.main.addOperation {
-            self.imageView.image = .init(systemName: "photo")
-            self.progressView.progress = 0
-            self.loadButton.isSelected = false
-        }
+        self.imageView.image = .init(systemName: "photo")
+        self.progressView.progress = 0
+        self.loadButton.isSelected = false
+    }
+    
+    func setImage(_ image: UIImage) {
+        self.imageView.image = image
     }
     
     func loadImage() {
         loadButton.sendActions(for: .touchUpInside)
-    }
-    
-    func stopLoading() {
-        
     }
     
     func fetchImage(url: URL) async throws -> UIImage {
@@ -97,76 +89,17 @@ class CustomView: UIView {
         return image
     }
     
-    func fetchThumbnail(url: URL) async throws -> UIImage {
-        let image = try await fetchImage(url: url)
-        return await image.thumbnail
-    }
-    
-    private func startLoad(url: URL) {
-        imageLoadTask = Task(priority: .userInitiated) {
-            // concurrency 가 아닌 상황에서 호출하기 위한 방법
-            let image = try await fetchImage(url: url)
-            imageView.image = image
+    func startLoad(url: URL) {
+        Task {
+            imageView.image = try await imageFetcher.fetchImage(url: url as NSURL)
         }
-        
-        
-//        blockOperation = BlockOperation {
-//            guard !self.blockOperation.isCancelled else {
-//                self.reset()
-//                return
-//            }
-//
-//            let request = URLRequest(url: url)
-//
-//            self.task = URLSession.shared.dataTask(with: request) { data, response, error in
-//                if let error = error {
-//                    guard error.localizedDescription == "cancelled" else {
-//                        fatalError(error.localizedDescription)
-//                    }
-//
-//                    self.reset()
-//                    return
-//                }
-//
-//                guard let data = data,
-//                      let image = UIImage(data: data) else {
-//                    OperationQueue.main.addOperation {
-//                        self.imageView.image = .init(systemName: "xmark")
-//                    }
-//                    return
-//                }
-//
-//                OperationQueue.main.addOperation {
-//                    self.imageView.image = image
-//                    self.loadButton.isSelected.toggle()
-//                }
-//            }
-//
-//            self.observation = self.task.progress.observe(\.fractionCompleted,
-//                                                 options: [.new],
-//                                                 changeHandler: { progress, change in
-//                OperationQueue.main.addOperation {
-//                    guard !self.blockOperation.isCancelled else {
-//                        self.observation.invalidate()
-//                        self.observation = nil
-//                        self.progressView.progress = 0
-//                        return
-//                    }
-//                    self.progressView.progress = Float(progress.fractionCompleted)
-//                }
-//            })
-//
-//            self.task.resume()
-//        }
-//
-//        OperationQueue().addOperation(blockOperation)
     }
     
     @IBAction private func onClickLoadButon(_ sender: UIButton) {
         sender.isSelected.toggle()
 
         guard sender.isSelected else {
-            self.imageLoadTask.cancel()
+            self.imageLoadTask?.cancel()
             return
         }
         
@@ -174,13 +107,8 @@ class CustomView: UIView {
             fatalError("Please check button's tag")
         }
         
-        let url = ImageURL[sender.tag]
-        startLoad(url: url)
-
-//
-        
-//
-//        let url = ImageURL[sender.tag]
-//        startLoad(url: url)
+        startLoad(url: ImageURL[sender.tag])
     }
+    
+    
 }
